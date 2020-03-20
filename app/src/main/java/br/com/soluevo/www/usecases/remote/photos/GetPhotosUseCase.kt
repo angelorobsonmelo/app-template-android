@@ -9,7 +9,7 @@ import br.com.stant.obras.service.BaseRemoteDataSource
 
 class GetPhotosUseCase(private val photoRemoteDataSource: PhotoRemoteDataSource) {
 
-    fun getPosts(callback: UseCaseBaseCallback.UseCaseCallback<List<Photo>>) {
+     fun getPosts(callback: UseCaseBaseCallback.UseCaseCallback<List<Photo>>) {
         photoRemoteDataSource.getPhotos(object :
             BaseRemoteDataSource.RemoteDataSourceCallback<List<Photo>> {
             override fun onSuccess(response: List<Photo>) {

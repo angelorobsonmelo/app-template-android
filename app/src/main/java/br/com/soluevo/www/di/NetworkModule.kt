@@ -20,14 +20,15 @@ val networkModule = module {
     single {
         val context = get() as Context
         val file = File(context.filesDir, "cache_dir")
-        val isNotExists = !file.exists()
-        if (isNotExists)
+        if (file.exists().not()) {
             file.mkdirs()
+        }
+
         file
     }
 
     single {
-        Cache(get(), 10 * 1000 * 1000)
+        Cache(get<File>(), 10 * 1000 * 1000)
     }
 
     single {
@@ -43,10 +44,10 @@ val networkModule = module {
             .writeTimeout(3, TimeUnit.MINUTES)
 
         if (BuildConfig.DEBUG) {
-            httpClient.addInterceptor(get() as HttpLoggingInterceptor)
+            httpClient.addInterceptor(get<HttpLoggingInterceptor>())
         }
 
-        httpClient.cache(get() as okhttp3.Cache)
+        httpClient.cache(get<Cache>())
         httpClient.build()
     }
 

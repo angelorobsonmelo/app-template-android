@@ -5,16 +5,18 @@ import br.com.soluevo.www.application.util.BaseViewModel
 import br.com.soluevo.www.application.util.EventLiveData
 import br.com.soluevo.www.domain.Photo
 import br.com.soluevo.www.service.utils.UseCaseBaseCallback
+import br.com.soluevo.www.usecases.remote.photos.ClearJobsUseCase
 import br.com.soluevo.www.usecases.remote.photos.GetPhotosUseCase
 
 class PhotosViewModel(
-    private val getPhotosUseCase: GetPhotosUseCase
+    private val getPhotosUseCase: GetPhotosUseCase,
+    private val clearJobsUseCase: ClearJobsUseCase
 ) : BaseViewModel<List<Photo>>() {
 
     val savePhotosObserver = MutableLiveData<EventLiveData<Boolean>>()
     val removeAllPhotosObserver = MutableLiveData<EventLiveData<Boolean>>()
 
-    fun getPosts() {
+     fun getPosts() {
         getPhotosUseCase.getPosts(object :
             UseCaseBaseCallback.UseCaseCallback<List<Photo>> {
 
@@ -34,6 +36,11 @@ class PhotosViewModel(
                 errorObserver.value = EventLiveData(errorDescription)
             }
         })
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        clearJobsUseCase.clearJobs()
     }
 
 }

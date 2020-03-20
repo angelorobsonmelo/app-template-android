@@ -1,10 +1,9 @@
-package br.com.soluevo.www
+package br.com.soluevo.www.application.ui
 
 import android.app.Application
-import br.com.soluevo.www.di.networkModule
+import br.com.soluevo.www.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
-import org.koin.dsl.koinApplication
 
 class Application : Application() {
 
@@ -17,7 +16,11 @@ class Application : Application() {
         startKoin {
             androidContext(this@Application)
             modules(
-                networkModule
+                networkModule,
+                apiModule,
+                remoteDataSourceModule,
+                useCaseModule,
+                viewModuleModule
             )
         }
     }

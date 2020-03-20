@@ -69,3 +69,6 @@ val networkModule = module {
     }
 
 }
+
+internal inline fun <reified T> createApi(retrofit: Retrofit) = retrofit.create(T::class.java)
+

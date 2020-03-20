@@ -21,8 +21,6 @@ class PhotoRemoteDataSourceImpl(private val apiDataSource: PhotoApiDataSource) :
             } finally {
                 callback.isLoading(false)
             }
-
-
         }
     }
 

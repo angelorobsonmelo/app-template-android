@@ -1,41 +1,43 @@
 package br.com.soluevo.www.service.remote.photo
 
-import android.util.Log
 import br.com.soluevo.www.domain.Photo
-import br.com.soluevo.www.service.utils.RemoteDataSourceClearJobs
 import br.com.stant.obras.service.BaseRemoteDataSource
 import kotlinx.coroutines.*
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.Dispatchers.Main
+import kotlin.coroutines.CoroutineContext
 
 class PhotoRemoteDataSourceImpl(private val apiDataSource: PhotoApiDataSource) :
     PhotoRemoteDataSource, CoroutineScope {
 
-    override val coroutineContext = Main
-
-    private val jobs = ArrayList<Job>()
-
-    private infix fun ArrayList<Job>.add(job: Job) {
-        this.add(job)
-    }
+    private var job: Job = Job()
 
     override fun getPhotos(callback: BaseRemoteDataSource.RemoteDataSourceCallback<List<Photo>>) {
-        jobs add launch {
+        launch {
             callback.isLoading(true)
             try {
-                val photos = apiDataSource.getPhotos().await()
-                callback.onSuccess(photos)
-                Log.d("photos list", photos.toString())
+                val result = apiDataSource.getPhotos().await()
+                onResult(result, callback)
             } catch (t: Throwable) {
                 callback.onError(t.localizedMessage)
             } finally {
                 callback.isLoading(false)
             }
+
+
         }
     }
 
-    override fun clearJobs() {
-        jobs.forEach { if (!it.isCancelled) it.cancel() }
+    fun onResult(
+        list: List<Photo>,
+        callback: BaseRemoteDataSource.RemoteDataSourceCallback<List<Photo>>
+    ) {
+        callback.onSuccess(list)
     }
+
+    override fun clearJobs() {
+        job.cancel()
+    }
+
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + job
 
 }

@@ -8,5 +8,5 @@ import retrofit2.http.GET
 interface PhotoApiDataSource {
 
     @GET("albums/1/photos")
-    suspend fun getPhotos(): Deferred<List<Photo>>
+    fun getPhotos(): Deferred<List<Photo>>
 }

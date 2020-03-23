@@ -13,10 +13,7 @@ class PhotosViewModel(
     private val clearJobsUseCase: ClearJobsUseCase
 ) : BaseViewModel<List<Photo>>() {
 
-    val savePhotosObserver = MutableLiveData<EventLiveData<Boolean>>()
-    val removeAllPhotosObserver = MutableLiveData<EventLiveData<Boolean>>()
-
-     fun getPosts() {
+    fun getPosts() {
         getPhotosUseCase.getPosts(object :
             UseCaseBaseCallback.UseCaseCallback<List<Photo>> {
 

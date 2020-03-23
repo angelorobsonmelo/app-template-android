@@ -13,7 +13,7 @@ class GetPhotosUseCase(private val photoRemoteDataSource: PhotoRemoteDataSource)
         photoRemoteDataSource.getPhotos(object :
             BaseRemoteDataSource.RemoteDataSourceCallback<List<Photo>> {
             override fun onSuccess(response: List<Photo>) {
-                callback.onSuccess(response)
+               callback.onSuccess(response)
             }
 
             override fun onError(errorMessage: String) {

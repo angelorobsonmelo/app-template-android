@@ -1,4 +1,4 @@
-package br.com.soluevo.www.application.ui.utils
+package br.com.soluevo.www.application.util
 
 import android.os.Bundle
 import android.view.View
@@ -7,8 +7,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
-import br.com.soluevo.www.application.util.BottomNavigationBehavior
-import br.com.soluevo.www.application.ui.utils.listener.OnConfirmDialogListener
+import br.com.soluevo.www.application.util.listener.OnConfirmDialogListener
 import kotlinx.android.synthetic.main.host_navigation_activity.*
 
 

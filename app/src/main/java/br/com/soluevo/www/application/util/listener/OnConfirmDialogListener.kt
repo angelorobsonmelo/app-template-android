@@ -1,4 +1,4 @@
-package br.com.soluevo.www.application.ui.utils.listener
+package br.com.soluevo.www.application.util.listener
 
 import android.content.DialogInterface
 

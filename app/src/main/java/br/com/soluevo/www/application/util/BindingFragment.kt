@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import br.com.soluevo.www.application.ui.utils.FragmentBase
 
 abstract class BindingFragment<T : ViewDataBinding> : FragmentBase() {
 

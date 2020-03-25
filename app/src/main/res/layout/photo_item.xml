@@ -7,7 +7,7 @@
 
         <variable
             name="photo"
-            type="br.com.soluevo.www.domain.Photo" />
+            type="br.com.angelorobson.domain.Photo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

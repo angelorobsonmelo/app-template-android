@@ -18,3 +18,5 @@ This project uses the following stack:
 - Retrofit
 - Data Binding
 - Picasso (Caching images)
+- Room database 
+- Material Design 2.0

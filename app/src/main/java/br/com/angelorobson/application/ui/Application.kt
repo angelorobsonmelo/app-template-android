@@ -19,7 +19,10 @@ class Application : Application() {
                 networkModule,
                 apiModule,
                 remoteDataSourceModule,
-                useCaseModule,
+                remoteUseCaseModule,
+                daoModule,
+                localDataSourceModule,
+                localUseCaseModule,
                 viewModuleModule
             )
         }

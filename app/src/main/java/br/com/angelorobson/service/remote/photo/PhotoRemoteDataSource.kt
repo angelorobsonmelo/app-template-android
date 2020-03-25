@@ -2,7 +2,7 @@ package br.com.angelorobson.service.remote.photo
 
 import br.com.angelorobson.domain.Photo
 import br.com.angelorobson.service.utils.RemoteDataSourceClearJobs
-import br.com.stant.obras.service.BaseRemoteDataSource
+import br.com.angelorobson.service.utils.BaseRemoteDataSource
 
 interface PhotoRemoteDataSource : RemoteDataSourceClearJobs {
 

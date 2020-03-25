@@ -9,6 +9,6 @@ import org.koin.dsl.module
 val viewModuleModule = module {
 
     viewModel {
-        PhotosViewModel(get<GetPhotosUseCase>(), get<ClearJobsUseCase>())
+        PhotosViewModel(get(), get(), get(), get(), get())
     }
 }

@@ -103,6 +103,10 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.2.5'
     kapt "androidx.room:room-compiler:2.2.5"
 
+    // Rx library
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
+
     // RxJava support for Room and Testing support
     implementation 'android.arch.persistence.room:rxjava2:1.1.1'
     androidTestImplementation 'android.arch.core:core-testing:1.1.1'

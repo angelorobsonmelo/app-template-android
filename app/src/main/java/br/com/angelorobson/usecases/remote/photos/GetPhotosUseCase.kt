@@ -4,7 +4,7 @@ package br.com.angelorobson.usecases.remote.photos
 import br.com.angelorobson.domain.Photo
 import br.com.angelorobson.service.remote.photo.PhotoRemoteDataSource
 import br.com.angelorobson.service.utils.UseCaseBaseCallback
-import br.com.stant.obras.service.BaseRemoteDataSource
+import br.com.angelorobson.service.utils.BaseRemoteDataSource
 
 
 class GetPhotosUseCase(private val photoRemoteDataSource: PhotoRemoteDataSource) {

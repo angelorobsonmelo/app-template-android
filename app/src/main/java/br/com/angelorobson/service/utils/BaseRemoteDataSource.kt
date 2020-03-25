@@ -1,4 +1,4 @@
-package br.com.stant.obras.service
+package br.com.angelorobson.service.utils
 
 class BaseRemoteDataSource {
 

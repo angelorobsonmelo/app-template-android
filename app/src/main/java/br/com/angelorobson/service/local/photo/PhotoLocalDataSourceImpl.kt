@@ -46,7 +46,7 @@ class PhotoLocalDataSourceImpl(private val dao: PhotoDao) :
 
     override fun getAll(callback: BaseRemoteDataSource.RemoteDataSourceCallback<List<Photo>>) {
         dao.getPhotos()
-            .subscribeOn(Schedulers.single())
+            .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.isLoading(true) }
             .doAfterTerminate { callback.isLoading(false) }
